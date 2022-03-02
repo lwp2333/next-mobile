@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import Router from './router'
 import Store from './store'
-import 'lib-flexible'
+// import 'lib-flexible' // 设置rem基准值
 import 'normalize.css' // 样式重置各浏览器统一
 import './styles/index.less' // 主题、全局样式
 import './permisson' // 权限

@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <DateSelect @select="handleSelect" />
     <div class="font-size-1">font-size: 12px</div>
     <div class="font-size-2">font-size: 16px</div>
     <div class="font-size-3">font-size: 20px</div>
@@ -7,7 +8,6 @@
     <div class="list-box-1">50x50</div>
     <div class="list-box-2">100x100</div>
     <div class="list-box-3">200x200</div>
-
     <div class="fab">
       <van-button round to="antv" color="linear-gradient(to right, #ff6034, #ee0a24)"> Go </van-button>
     </div>
@@ -17,9 +17,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-
 const Router = useRouter()
 const show = ref(true)
+
+const handleSelect = (option: any, val: string[]) => {
+  console.log(option)
+  console.log(val)
+}
 </script>
 
 <style scoped lang="less">
@@ -27,7 +31,7 @@ const show = ref(true)
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 12px 8px;
   color: #333;
 
   > div {
