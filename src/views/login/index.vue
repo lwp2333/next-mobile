@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <DateSelect @select="handleSelect" />
     <div class="font-size-1">font-size: 12px</div>
     <div class="font-size-2">font-size: 16px</div>
     <div class="font-size-3">font-size: 20px</div>
@@ -19,11 +18,6 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 const Router = useRouter()
 const show = ref(true)
-
-const handleSelect = (option: any, val: string[]) => {
-  console.log(option)
-  console.log(val)
-}
 </script>
 
 <style scoped lang="less">
