@@ -1,7 +1,7 @@
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 
-export default function useInterval(Action: () => void, delay: number = 1000, immediate: boolean = false) {
-  let timer: number = 0
+export default function useInterval(Action: () => void, delay = 1000, immediate = false) {
+  let timer = 0
   const interval = ref(delay)
   const startInterval = () => {
     immediate && Action()

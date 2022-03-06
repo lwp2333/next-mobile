@@ -2,7 +2,7 @@ import { ref, onMounted, onUnmounted, watch } from 'vue'
 
 export default function useCountDown(Action: () => void, num: number) {
   const count = ref(num)
-  let timer: number = 0
+  let timer = 0
   onMounted(() => {
     timer = window.setInterval(() => {
       count.value--

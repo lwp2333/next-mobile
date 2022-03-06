@@ -73,7 +73,7 @@ export function useVantList<T>(
     })
   }
 
-  //查询数据/下拉更新
+  // 查询数据/下拉更新
   const handleSearchOrRefresh = () => {
     // 先清空原有数据
     listInfo.list = []
