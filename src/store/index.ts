@@ -1,8 +1,13 @@
 import { createStore } from 'vuex'
+import { AppInfoStateType } from './modules/appInfo'
 // getters、 actions 、 mutations
 import actions from './actions'
 import mutations from './mutations'
 import getters from './getters'
+
+export type RootStateType = {
+  appInfo: AppInfoStateType
+}
 
 const modules = import.meta.globEager('./modules/*.ts')
 
@@ -17,7 +22,7 @@ Object.keys(modules).forEach(file => {
   map[modulesName] = modules[file].default
 })
 
-const Store = createStore({
+const Store = createStore<RootStateType>({
   modules: {
     ...map,
   },

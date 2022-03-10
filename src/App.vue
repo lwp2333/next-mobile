@@ -1,5 +1,5 @@
 <template>
-  <van-config-provider>
+  <van-config-provider class="g-scrollbar">
     <router-view></router-view>
   </van-config-provider>
 </template>

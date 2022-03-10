@@ -1,9 +1,12 @@
-const antvRouter = {
+import { RouteRecordRaw } from 'vue-router'
+
+const antvRouter: RouteRecordRaw = {
   path: 'antv',
   name: 'antv',
   component: () => import('@/views/antv/index.vue'),
   meta: {
-    title: 'antv',
+    title: '图表',
+    showTitle: true,
   },
 }
 

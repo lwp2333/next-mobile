@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import viteCompression from 'vite-plugin-compression'
 import Components from 'unplugin-vue-components/vite'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
 import path from 'path'
@@ -17,6 +18,13 @@ export default defineConfig(({ command, mode }) => {
         dts: true,
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/, /\.ts$/, /\.tsx$/],
         exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
+      }),
+      viteCompression({
+        verbose: true,
+        disable: false,
+        threshold: 1025,
+        algorithm: 'gzip',
+        ext: '.gz',
       }),
     ],
     // 基础配置

@@ -18,15 +18,15 @@ const Router = createRouter({
       meta: {
         title: '主页',
       },
-      redirect: '/login',
+      redirect: '/home',
       component: () => import('@/layout/index.vue'),
     },
     {
-      path: '/login',
-      name: 'login',
-      component: () => import('@/views/login/index.vue'),
+      path: '/home',
+      name: 'home',
+      component: () => import('@/views/home/index.vue'),
       meta: {
-        title: '登录',
+        title: '首页',
       },
     },
     {

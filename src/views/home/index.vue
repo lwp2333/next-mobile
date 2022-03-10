@@ -4,11 +4,11 @@
     <div class="font-size-2">font-size: 16px</div>
     <div class="font-size-3">font-size: 20px</div>
     <div class="font-size-4">font-size: 24px</div>
-    <div class="list-box-1">50x50</div>
-    <div class="list-box-2">100x100</div>
-    <div class="list-box-3">200x200</div>
+    <div class="list-box list-box-1">50x50</div>
+    <div class="list-box list-box-2">100x100</div>
+    <div class="list-box list-box-3">200x200</div>
     <div class="fab">
-      <van-button round to="antv" color="linear-gradient(to right, #ff6034, #ee0a24)"> Go </van-button>
+      <van-button round to="antv" color="linear-gradient(to right, #ff6034, #ee0a24)"> 下一页 </van-button>
     </div>
   </div>
 </template>
@@ -46,34 +46,29 @@ const show = ref(true)
     font-size: 24px;
   }
 
-  .list-box-1 {
+  .list-box {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 8px;
     color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    background-image: linear-gradient(135deg, #43cbff 10%, #9708cc 100%);
+  }
+  .list-box-1 {
     width: 50px;
     height: 50px;
-    background-image: linear-gradient(135deg, #43cbff 10%, #9708cc 100%);
   }
 
   .list-box-2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
     width: 100px;
     height: 100px;
-    background-image: linear-gradient(135deg, #43cbff 10%, #9708cc 100%);
   }
 
   .list-box-3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
     width: 200px;
     height: 200px;
-    background-image: linear-gradient(135deg, #43cbff 10%, #9708cc 100%);
   }
 }
 

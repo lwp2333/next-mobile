@@ -213,7 +213,7 @@ const drawChart = () => {
   const chart = new F2.Chart({
     id: 'container',
     pixelRatio: window.devicePixelRatio,
-    width: document.body.clientWidth,
+    width: document.body.clientWidth - 16,
     height: document.body.clientWidth * 0.8,
   })
   chart.source(data, {
