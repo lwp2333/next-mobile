@@ -1,11 +1,13 @@
 <template>
   <canvas id="container"></canvas>
+  <div class="fab">
+    <van-button round to="oss" color="linear-gradient(to right, #ff6034, #ee0a24)"> 下一页 </van-button>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, watchEffect, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import F2 from '@antv/f2'
-import Scroll from '@antv/f2/lib/plugin/scroll-bar'
 
 const drawChart = () => {
   const data = [
@@ -261,5 +263,10 @@ onMounted(() => {
 .container {
   width: 100%;
   height: 100%;
+}
+.fab {
+  position: absolute;
+  right: 8px;
+  bottom: 38px;
 }
 </style>

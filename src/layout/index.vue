@@ -1,8 +1,8 @@
 <template>
-  <div :class="{ pdtop: showTitle, layout: true }">
+  <div :class="{ pdtop: info.showTitle, layout: true }">
     <van-nav-bar
-      v-if="showTitle"
-      :title="title"
+      v-if="info.showTitle"
+      :title="info.title"
       @click-left="handleBack"
       @click-right="handleRefreshApp"
       left-arrow
@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, reactive, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import { RootStateType } from '@/store'
@@ -27,11 +27,20 @@ type Meta = {
   title?: string
 }
 
-const { meta } = useRoute()
+const Route = useRoute()
 const Router = useRouter()
 const Store = useStore<RootStateType>()
 
-const { showTitle = true, title = '' } = meta as Meta
+const info = reactive<Meta>({
+  showTitle: false,
+  title: '',
+})
+
+watchEffect(() => {
+  const { showTitle, title } = Route.meta as Meta
+  info.showTitle = showTitle
+  info.title = title
+})
 
 const refreshFlag = computed(() => Store.state.appInfo.refreshFlag)
 
@@ -40,9 +49,13 @@ const handleBack = () => {
   Router.back()
 }
 
+let timer: number
 const handleRefreshApp = () => {
-  console.log('点击刷新')
-  Store.dispatch('appInfo/refreshApp')
+  timer && clearTimeout(timer)
+  timer = window.setTimeout(() => {
+    console.log('点击刷新')
+    Store.dispatch('appInfo/refreshApp')
+  }, 600)
 }
 // 大小方向改变，重新刷新
 useWinResize(handleRefreshApp)
