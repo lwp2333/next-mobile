@@ -5,7 +5,7 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
-  "theme_color": "#317EFB",
+  "theme_color": "#fafafa",
   "description": "lwp's life app",
   "icons": [
     {

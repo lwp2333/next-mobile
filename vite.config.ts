@@ -30,7 +30,7 @@ export default defineConfig(({ command, mode }) => {
       }),
     ],
     // 基础配置
-    base: mode === 'development' ? '/' : 'https://cdn200.oss-cn-hangzhou.aliyuncs.com/vant-ts',
+    base: mode === 'development' ? '/' : 'https://cdn200.oss-cn-hangzhou.aliyuncs.com/next-mobile',
     publicDir: 'public',
     resolve: {
       alias: {
