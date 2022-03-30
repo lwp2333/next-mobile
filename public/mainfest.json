@@ -1,34 +1,17 @@
 {
-  "name": "lwp's life",
-  "short_name": "lwp's life",
+  "name": "life fragment",
+  "short_name": "life fragment",
   "lang": "zh-CN",
-  "start_url": ".",
+  "start_url": "http://m.lwp.fun",
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#fafafa",
-  "description": "lwp's life app",
+  "description": "lwp's life fragment",
   "icons": [
-    {
-      "src": "image/192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "image/512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "image/192-maskable.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "image/512-maskable.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    { "src": "/favicon.ico", "type": "image/x-icon", "sizes": "16x16 32x32" },
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" },
+    { "src": "/icon-192-maskable.png", "type": "image/png", "sizes": "192x192", "purpose": "maskable" },
+    { "src": "/icon-512-maskable.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
   ]
 }

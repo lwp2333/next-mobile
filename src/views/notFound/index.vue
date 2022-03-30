@@ -1,21 +1,21 @@
 <template>
   <div class="container">
-    <img :src="notFound" alt="找不到路径或者无权访问" />
+    <img :src="pancake" alt="找不到路径或者无权访问" />
     <div class="coutDown">
-      <van-button type="primary" @click="backHome"> 返回（{{ coutDown }}）</van-button>
+      <span @click="backHome">页面丢失了({{ coutDown }})</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import notFound from '@/assets/svg/404.svg'
+import pancake from '@/assets/svg/pancake.svg'
 import { useRouter } from 'vue-router'
 import useCountDown from '@/hooks/useCountDown'
 const Router = useRouter()
 const backHome = () => {
   Router.back()
 }
-const num = 5
+const num = 3
 const coutDown = useCountDown(backHome, num)
 </script>
 
@@ -27,9 +27,5 @@ const coutDown = useCountDown(backHome, num)
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  img {
-    width: 8rem;
-    object-fit: contain;
-  }
 }
 </style>
