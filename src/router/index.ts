@@ -18,15 +18,15 @@ const Router = createRouter({
       meta: {
         title: '主页',
       },
-      redirect: '/home',
+      redirect: '/splash',
       component: () => import('@/layout/index.vue'),
     },
     {
-      path: '/home',
-      name: 'home',
-      component: () => import('@/views/home/index.vue'),
+      path: '/splash',
+      name: 'splash',
+      component: () => import('@/views/splash/index.vue'),
       meta: {
-        title: '首页',
+        title: '启动屏',
       },
     },
     {
@@ -34,7 +34,7 @@ const Router = createRouter({
       name: 'notFound',
       component: () => import('@/views/notFound/index.vue'),
       meta: {
-        title: '找不到路径',
+        title: '页面丢失了 (＠_＠;)',
       },
     },
     {

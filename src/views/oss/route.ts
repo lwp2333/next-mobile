@@ -5,7 +5,7 @@ const ossRouter: RouteRecordRaw = {
   name: 'oss',
   component: () => import('@/views/oss/index.vue'),
   meta: {
-    title: 'oss文件上传/下载',
+    title: '图片上传',
     showTitle: true,
   },
 }

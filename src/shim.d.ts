@@ -1,5 +1,3 @@
 declare interface Window {
-  axiosCalcelTokenArr: any[]
+  axiosCalcelTokenArr: unknown[]
 }
-
-declare module 'number-flip'

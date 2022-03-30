@@ -1,7 +1,7 @@
 import { nextTick } from 'vue'
 import { ActionContext } from 'vuex'
 const state = {
-  appName: 'vite2-vue3-ts-vant',
+  appName: 'vite2-vue3-pwa',
   refreshFlag: false, // 是否需要刷新
 }
 

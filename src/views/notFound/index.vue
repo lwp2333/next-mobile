@@ -1,9 +1,7 @@
 <template>
   <div class="container">
-    <img :src="pancake" alt="找不到路径或者无权访问" />
-    <div class="coutDown">
-      <span @click="backHome">页面丢失了({{ coutDown }})</span>
-    </div>
+    <img class="notFound" :src="pancake" alt="页面丢失了 (＠_＠;)" />
+    <span @click="back">页面丢失了(＠_＠;)({{ coutDown }})</span>
   </div>
 </template>
 
@@ -12,11 +10,11 @@ import pancake from '@/assets/svg/pancake.svg'
 import { useRouter } from 'vue-router'
 import useCountDown from '@/hooks/useCountDown'
 const Router = useRouter()
-const backHome = () => {
+const back = () => {
   Router.back()
 }
 const num = 3
-const coutDown = useCountDown(backHome, num)
+const coutDown = useCountDown(back, num)
 </script>
 
 <style scoped lang="less">
@@ -27,5 +25,10 @@ const coutDown = useCountDown(backHome, num)
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .notFound {
+    width: 48%;
+    height: auto;
+  }
 }
 </style>
