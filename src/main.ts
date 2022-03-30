@@ -6,6 +6,7 @@ import 'lib-flexible' // 设置rem基准值
 import 'normalize.css' // 样式重置各浏览器统一
 import './styles/index.less' // 主题、全局样式
 import './permisson' // 权限
+import 'default-passive-events' // use passive
 
 import directives from './directives' // 全局指令
 

@@ -33,9 +33,9 @@ import flower from '@/assets/json/flower.json?url'
 import TypeWriter from '@/components/typeWriter/index.vue'
 
 const textMap: string[] = [
-  '「 时至今日,你仍是我的光芒 」',
-  '「 有功夫绝望，不如去吃点好吃去睡觉 」',
-  '「 每个人都是罪人，为了赎罪而工作 」',
+  '「 时至今日, 你仍是我的光芒 」',
+  '「 有功夫绝望, 不如吃点好吃的去睡觉 」',
+  '「 每个人都有罪, 是为了赎罪而工作 」',
   '「 认清生活的真相后, 依旧要热爱生活 」',
 ]
 const curShowText = ref(textMap[0])

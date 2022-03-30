@@ -26,6 +26,7 @@
     "ali-oss": "^6.17.1",
     "axios": "^0.26.1",
     "dayjs": "^1.10.8",
+    "default-passive-events": "^2.0.0",
     "lib-flexible": "^0.3.2",
     "lottie-web": "^5.9.1",
     "normalize.css": "^8.0.1",
