@@ -6,7 +6,7 @@ export default function () {
 
   const ossUpload = (name: string, file: any, options?: OSS.PutObjectOptions) => {
     const dayNow = dayjs().format('YYYYMMDD')
-    const objectName = `vant-ts/static/${dayNow}/${name}`
+    const objectName = `pwa/static/${dayNow}/${name}`
     return OssClient.put(objectName, file, options)
   }
 

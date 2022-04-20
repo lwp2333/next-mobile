@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <img class="notFound" :src="pancake" alt="页面丢失了 (＠_＠;)" />
-    <span @click="back">页面丢失了(＠_＠;)({{ coutDown }})</span>
+    <img class="notFound" :src="notFoundSvg" alt="页面丢失了 (＠_＠;)" />
+    <span @click="back">页面丢失了(＠_＠)({{ coutDown }})</span>
   </div>
 </template>
 
 <script setup lang="ts">
-import pancake from '@/assets/svg/pancake.svg'
+import notFoundSvg from '@/assets/svg/notFound.svg'
 import { useRouter } from 'vue-router'
 import useCountDown from '@/hooks/useCountDown'
 const Router = useRouter()
@@ -25,7 +25,7 @@ const coutDown = useCountDown(back, num)
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  font-size: 14px;
   .notFound {
     width: 48%;
     height: auto;

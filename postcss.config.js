@@ -3,15 +3,22 @@ module.exports = {
     autoprefixer: {
       overrideBrowserslist: ['Android 4.1', 'iOS 7.1', 'Chrome > 31', 'ff > 31', 'ie >= 8'],
     },
-    'postcss-pxtorem': {
-      rootValue: 37.5,
+    'postcss-px-to-viewport': {
+      unitToConvert: 'px',
+      viewportWidth: 375,
       unitPrecision: 5,
       propList: ['*'],
+      viewportUnit: 'vw',
+      fontViewportUnit: 'vw',
       selectorBlackList: [],
-      replace: true,
+      minPixelValue: 1,
       mediaQuery: false,
-      minPixelValue: 0,
-      exclude: '',
+      replace: true,
+      exclude: undefined,
+      include: undefined,
+      landscape: false,
+      landscapeUnit: 'vw',
+      landscapeWidth: 667,
     },
   },
 }

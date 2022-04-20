@@ -5,6 +5,7 @@
       :title="info.title"
       @click-left="handleBack"
       @click-right="handleRefreshApp"
+      safe-area-inset-top
       left-arrow
       fixed
     >
@@ -12,63 +13,82 @@
         <van-icon name="replay" size="18" />
       </template>
     </van-nav-bar>
-    <router-view v-if="!refreshFlag"></router-view>
+    <router-view></router-view>
+    <van-tabbar v-model="info.active" safe-area-inset-bottom route fixed>
+      <van-tabbar-item name="/paike" to="/paike" replace>
+        <template #icon>
+          <AliIcon iconName="paike" />
+        </template>
+        <span>拍客</span>
+      </van-tabbar-item>
+      <van-tabbar-item name="/zuji" to="/zuji" replace>
+        <template #icon>
+          <AliIcon iconName="zuji" />
+        </template>
+        <span>足迹</span>
+      </van-tabbar-item>
+      <van-tabbar-item name="/tongji" to="/tongji" replace>
+        <template #icon>
+          <AliIcon iconName="yingyong" />
+        </template>
+        <span>统计</span>
+      </van-tabbar-item>
+      <van-tabbar-item name="/setting" to="/setting" replace>
+        <template #icon>
+          <AliIcon iconName="shezhi" />
+        </template>
+        <span>设置</span>
+      </van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, watchEffect } from 'vue'
+import { reactive, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useStore } from 'vuex'
-import { RootStateType } from '@/store'
-import useWinResize from '@/hooks/useWinResize'
+import AliIcon from '@/components/aliIcon/index.vue'
+import useApp from '@/hooks/useApp'
 type Meta = {
-  showTitle?: boolean
-  title?: string
+  showTitle: boolean
+  title: string
+  active: string
 }
 
 const Route = useRoute()
 const Router = useRouter()
-const Store = useStore<RootStateType>()
 
 const info = reactive<Meta>({
   showTitle: false,
   title: '',
+  active: '',
 })
 
 watchEffect(() => {
-  const { showTitle, title } = Route.meta as Meta
+  const { meta, matched } = Route
+  const { showTitle, title } = meta as Meta
+  // 通过路由匹配来确定tab高亮
+  const last = matched[matched.length - 1]
+  const tabbar = ['/paike', '/zuji', '/tongji', '/setting']
+  info.active = tabbar.find(item => last.path.startsWith(item)) || ''
   info.showTitle = showTitle
   info.title = title
 })
-
-const refreshFlag = computed(() => Store.state.appInfo.refreshFlag)
 
 const handleBack = () => {
   console.log('点击返回')
   Router.back()
 }
 
-let timer: number
-const handleRefreshApp = () => {
-  timer && clearTimeout(timer)
-  timer = window.setTimeout(() => {
-    console.log('点击刷新')
-    Store.dispatch('appInfo/refreshApp')
-  }, 600)
-}
-// 大小方向改变，重新刷新
-useWinResize(handleRefreshApp)
+const { handleRefreshApp } = useApp()
 </script>
 
 <style scoped lang="less">
 .layout {
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
-  padding: 8px;
+  padding-top: 4px;
 }
 .pdtop {
-  padding-top: calc(8px + var(--van-nav-bar-height));
+  padding-top: calc(4px + var(--van-nav-bar-height));
 }
 </style>

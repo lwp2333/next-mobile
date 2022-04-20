@@ -3,7 +3,6 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick } from 'process'
 import { ref, computed, onUnmounted, watch, toRefs, onMounted } from 'vue'
 const props = defineProps({
   text: {
@@ -22,7 +21,7 @@ const typing = (index: number, strArr: string[]) => {
     domRef.value.innerText += strArr[index]
     timer = window.setTimeout(() => {
       typing(++index, strArr)
-    }, 160)
+    }, 60 + Math.random() * 60)
   }
 }
 
@@ -54,7 +53,7 @@ export default {
   line-height: 1.5;
   text-align: center;
   letter-spacing: 4px;
-  animation: fadeOutDown 5s;
+  animation: fadeOutDown 3.2s;
 }
 
 @keyframes fadeOutDown {

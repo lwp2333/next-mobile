@@ -1,9 +1,6 @@
-import { onMounted, reactive, toRefs, isRef, nextTick, Ref } from 'vue'
+import { onMounted, reactive, toRefs, isRef, Ref } from 'vue'
 import useWinResize from './useWinResize'
-/**
- *
- * @param {dom id节点或者 ref句柄} target
- */
+
 export default function useSize(target: Ref | string) {
   const size = reactive({
     width: 0,
@@ -20,5 +17,5 @@ export default function useSize(target: Ref | string) {
       getSizeInfo()
     }, 120)
   })
-  return { ...toRefs(size) }
+  return size
 }

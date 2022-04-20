@@ -15,6 +15,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off', // 生产环境禁用consele
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off', // 生产环境禁用debugger
     'no-unused-vars': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-multiple-empty-lines': 'off',
     'space-before-function-paren': 'off',
     'vue/multi-word-component-names': 'off',
     'comma-dangle': 'off',

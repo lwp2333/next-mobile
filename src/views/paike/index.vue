@@ -8,7 +8,7 @@
 import { ref } from 'vue'
 import { UploaderFileListItem } from 'vant'
 import useOss from '@/hooks/useOss'
-const fileList = ref([])
+const fileList = ref<UploaderFileListItem[]>([])
 
 const { ossUpload } = useOss()
 
@@ -24,6 +24,7 @@ const afterRead = async (item: UploaderFileListItem | UploaderFileListItem[]) =>
       item.status = 'done'
     } catch (error) {
       console.log(error)
+      item.status = 'failed'
     }
   }
 }
@@ -34,6 +35,7 @@ const afterRead = async (item: UploaderFileListItem | UploaderFileListItem[]) =>
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }

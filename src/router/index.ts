@@ -24,17 +24,17 @@ const Router = createRouter({
     {
       path: '/splash',
       name: 'splash',
-      component: () => import('@/views/splash/index.vue'),
+      component: () => import('@/views/splash.vue'),
       meta: {
-        title: '启动屏',
+        title: '引导页',
       },
     },
     {
       path: '/notFound',
       name: 'notFound',
-      component: () => import('@/views/notFound/index.vue'),
+      component: () => import('@/views/notFound.vue'),
       meta: {
-        title: '页面丢失了 (＠_＠;)',
+        title: '页面丢失了 (＠_＠)',
       },
     },
     {
