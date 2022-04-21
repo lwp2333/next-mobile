@@ -3,15 +3,15 @@ import { ref, onMounted, onUnmounted } from 'vue'
 export default function useMouse() {
   const x = ref(0)
   const y = ref(0)
-  const updateXY = (e: MouseEvent) => {
+  const update = (e: MouseEvent) => {
     x.value = e.x
     y.value = e.y
   }
   onMounted(() => {
-    document.addEventListener('mousemove', updateXY)
+    document.addEventListener('mousemove', update)
   })
   onUnmounted(() => {
-    document.removeEventListener('mousemove', updateXY)
+    document.removeEventListener('mousemove', update)
   })
   return { x, y }
 }

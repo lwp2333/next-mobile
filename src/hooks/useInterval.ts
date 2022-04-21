@@ -1,26 +1,32 @@
 import { ref, onMounted, onUnmounted, watch } from 'vue'
-
-export default function useInterval(Action: () => void, delay = 1000, immediate = false) {
-  let timer = 0
-  const interval = ref(delay)
+/**
+ *
+ * @param Action 事件
+ * @param millisecond 间隔时间默认1000ms
+ * @param immediate 是否立即运行一次
+ * @returns
+ */
+export default function useInterval(Action: () => void, millisecond = 1000, immediate = false) {
+  const timer = ref(0)
+  const interval = ref(millisecond)
   const startInterval = () => {
     immediate && Action()
-    timer = window.setInterval(() => {
+    timer.value = window.setInterval(() => {
       Action()
     }, interval.value)
   }
   const clear = () => {
-    timer && clearInterval(timer)
+    timer.value && clearInterval(timer.value)
   }
   const setTime = (val: number) => {
     interval.value = val
   }
   const restTime = () => {
-    interval.value = delay
+    interval.value = millisecond
   }
   const stopWatch = watch(interval, () => {
     clear()
-    timer = window.setInterval(() => {
+    timer.value = window.setInterval(() => {
       Action()
     }, interval.value)
   })
@@ -31,5 +37,5 @@ export default function useInterval(Action: () => void, delay = 1000, immediate 
     clear()
     stopWatch()
   })
-  return [timer, setTime, restTime, clear, startInterval]
+  return { timer, action: [setTime, restTime, clear, startInterval] }
 }

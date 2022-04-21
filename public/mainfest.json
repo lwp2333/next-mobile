@@ -2,16 +2,38 @@
   "name": "life fragment",
   "short_name": "life fragment",
   "lang": "zh-CN",
-  "start_url": "http://m.lwp.fun",
+  "start_url": "https://m.lwp.fun",
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#fafafa",
   "description": "lwp's life fragment",
   "icons": [
-    { "src": "/favicon.ico", "type": "image/x-icon", "sizes": "16x16 32x32" },
-    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
-    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" },
-    { "src": "/icon-192-maskable.png", "type": "image/png", "sizes": "192x192", "purpose": "maskable" },
-    { "src": "/icon-512-maskable.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+    {
+      "src": "https://cdn200.oss-cn-hangzhou.aliyuncs.com/next-mobile/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "16x16 32x32"
+    },
+    {
+      "src": "https://cdn200.oss-cn-hangzhou.aliyuncs.com/next-mobile/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://cdn200.oss-cn-hangzhou.aliyuncs.com/next-mobile/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "https://cdn200.oss-cn-hangzhou.aliyuncs.com/next-mobile/icon-192-maskable.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://cdn200.oss-cn-hangzhou.aliyuncs.com/next-mobile/icon-512-maskable.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
   ]
 }

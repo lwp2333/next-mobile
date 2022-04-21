@@ -1,6 +1,6 @@
 import { onMounted, onBeforeUnmount } from 'vue'
 
-export default function useWinResize(Action = () => {}) {
+export default function useWinResize(Action: () => void) {
   const fn = () => {
     /**
      * 延迟更新重绘等操作
@@ -13,5 +13,4 @@ export default function useWinResize(Action = () => {}) {
   onBeforeUnmount(() => {
     window.removeEventListener('resize', fn)
   })
-  return null
 }

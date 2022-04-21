@@ -1,40 +1,36 @@
 import { reactive } from 'vue'
-
-interface IPageInfo {
+export interface PageInfo {
   pageIndex: number
   pageSize: number
 }
-
-interface ICommonPage<T> extends IPageInfo {
+export interface CommonPage<T> extends PageInfo {
+  // T 为列表项数据类型
   list: T[]
   totalCount: number
 }
-
-interface IListInfo<T> extends ICommonPage<T> {
+export interface ListInfo<T> extends CommonPage<T> {
   loading: boolean
   ifinished: boolean
   refreshing: boolean
 }
-
-interface IFetchDataParams extends IPageInfo {
-  [key: string]: unknown
+export interface FetchDataParams<K> extends PageInfo {
+  // K是查询字段配置类型
+  searchConfig: K
 }
-
 /**
- *
- * @param config 分页配置
  * @param api 异步接口
- * @param params 查询字段
- * @returns
+ * @param pageConfig 初始分页配置
+ * @param searchConfig 查询字段配置
+ * @returns listInfo action
  */
-export function useVantList<T>(
-  config: IPageInfo,
-  api: (data?: any) => Promise<ICommonPage<T>>,
-  params?: { [key: string]: unknown }
+export function useVantList<T, K>(
+  api: (data: FetchDataParams<K>) => Promise<CommonPage<T>>,
+  pageConfig: PageInfo,
+  searchConfig: K
 ) {
-  const listInfo = reactive<IListInfo<T>>({
-    pageIndex: config.pageIndex,
-    pageSize: config.pageSize,
+  const listInfo = reactive<ListInfo<T>>({
+    pageIndex: pageConfig.pageIndex,
+    pageSize: pageConfig.pageSize,
     loading: false,
     list: [],
     totalCount: 0,
@@ -43,7 +39,7 @@ export function useVantList<T>(
   })
 
   // 拉取数据
-  const fetchData = (data: IFetchDataParams) => {
+  const fetchData = (data: FetchDataParams<K>) => {
     listInfo.loading = true
     api(data)
       .then(res => {
@@ -69,7 +65,7 @@ export function useVantList<T>(
     fetchData({
       pageIndex,
       pageSize,
-      ...params,
+      searchConfig,
     })
   }
 
@@ -83,10 +79,8 @@ export function useVantList<T>(
     fetchData({
       pageIndex,
       pageSize,
-      ...params,
+      searchConfig,
     })
   }
-
-  const action = [handleSearchOrRefresh, handleLoad]
-  return { listInfo, action }
+  return { listInfo, action: [handleSearchOrRefresh, handleLoad] }
 }

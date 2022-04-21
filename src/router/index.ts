@@ -1,9 +1,9 @@
-import { createRouter, createWebHashHistory, RouteLocationNormalized, RouteLocationNormalizedLoaded } from 'vue-router'
+import { createRouter, createWebHistory, RouteLocationNormalized, RouteLocationNormalizedLoaded } from 'vue-router'
 import NProgress from 'nprogress'
 NProgress.configure({ showSpinner: false })
 
 const Router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   scrollBehavior(to: RouteLocationNormalized, from: RouteLocationNormalizedLoaded, savedPosition: any) {
     if (savedPosition) {
       return { ...savedPosition, behavior: 'smooth' }

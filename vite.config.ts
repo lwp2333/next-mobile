@@ -9,6 +9,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
+  console.log(mode)
   return {
     // 项目插件
     plugins: [
@@ -30,7 +31,7 @@ export default defineConfig(({ command, mode }) => {
       }),
     ],
     // 基础配置
-    base: mode === 'development' ? '/' : 'https://cdn200.oss-cn-hangzhou.aliyuncs.com/next-mobile',
+    base: mode !== 'production' ? '/' : 'https://cdn200.oss-cn-hangzhou.aliyuncs.com/next-mobile',
     publicDir: 'public',
     resolve: {
       alias: {

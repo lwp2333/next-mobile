@@ -13,7 +13,11 @@
         <van-icon name="replay" size="18" />
       </template>
     </van-nav-bar>
-    <router-view></router-view>
+    <router-view class="mainPage" v-slot="{ Component }">
+      <Transition name="slide-fade">
+        <component :is="Component" />
+      </Transition>
+    </router-view>
     <van-tabbar v-model="info.active" safe-area-inset-bottom route fixed>
       <van-tabbar-item name="/paike" to="/paike" replace>
         <template #icon>
@@ -66,10 +70,10 @@ const info = reactive<Meta>({
 watchEffect(() => {
   const { meta, matched } = Route
   const { showTitle, title } = meta as Meta
-  // 通过路由匹配来确定tab高亮
-  const last = matched[matched.length - 1]
-  const tabbar = ['/paike', '/zuji', '/tongji', '/setting']
-  info.active = tabbar.find(item => last.path.startsWith(item)) || ''
+  // 通过路由匹配来确定tab高亮 （van-tabbar route 模式自带）
+  // const last = matched[matched.length - 1]
+  // const tabbar = ['/paike', '/zuji', '/tongji', '/setting']
+  // info.active = tabbar.find(item => last.path.startsWith(item)) || ''
   info.showTitle = showTitle
   info.title = title
 })
@@ -87,6 +91,10 @@ const { handleRefreshApp } = useApp()
   width: 100%;
   height: 100%;
   padding-top: 4px;
+  .mainPage {
+    width: 100%;
+    height: calc(100% - var(--van-tabbar-height));
+  }
 }
 .pdtop {
   padding-top: calc(4px + var(--van-nav-bar-height));

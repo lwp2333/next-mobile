@@ -1,18 +1,14 @@
 import { getOssClient } from '@/utils/oss'
 import OSS from 'ali-oss'
 import dayjs from 'dayjs'
-export default function () {
-  const OssClient = getOssClient()
-
+export default function useOss() {
   const ossUpload = (name: string, file: any, options?: OSS.PutObjectOptions) => {
     const dayNow = dayjs().format('YYYYMMDD')
     const objectName = `pwa/static/${dayNow}/${name}`
-    return OssClient.put(objectName, file, options)
+    return getOssClient().put(objectName, file, options) // 真正使用上传下载的时候。才去实例化ossClient
   }
-
   const ossDownload = (name: string, file?: any, options?: OSS.GetObjectOptions) => {
-    return OssClient.get(name, file, options)
+    return getOssClient().get(name, file, options) // 真正使用上传下载的时候。才去实例化ossClient
   }
-
   return { ossUpload, ossDownload }
 }

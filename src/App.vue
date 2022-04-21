@@ -1,6 +1,8 @@
 <template>
   <ConfigProvider :theme-vars="themeVars" class="g-scrollbar">
-    <router-view v-if="!refreshFlag"></router-view>
+    <router-view v-slot="{ Component }">
+      <component v-if="!refreshFlag" :is="Component" />
+    </router-view>
   </ConfigProvider>
 </template>
 
@@ -16,9 +18,4 @@ const { refreshFlag, handleRefreshApp } = useApp()
 // 大小方向改变，重新刷新
 useWinResize(handleRefreshApp)
 </script>
-<style lang="less" scoped>
-.van-config-provider {
-  width: 100%;
-  height: 100%;
-}
-</style>
+<style lang="less" scoped></style>
