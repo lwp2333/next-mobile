@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import vitePublish from 'vite-plugin-publish'
 import { VitePWA } from 'vite-plugin-pwa'
 import viteCompression from 'vite-plugin-compression'
 import Components from 'unplugin-vue-components/vite'
@@ -8,8 +9,7 @@ import { VantResolver } from 'unplugin-vue-components/resolvers'
 import path from 'path'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode }) => {
-  console.log(mode)
+export default defineConfig(({ mode }) => {
   return {
     // 项目插件
     plugins: [
@@ -29,9 +29,25 @@ export default defineConfig(({ command, mode }) => {
         algorithm: 'gzip',
         ext: '.gz',
       }),
+      vitePublish({
+        enable: true,
+        ftp: {
+          host: '',
+          port: 21,
+          websiteDir: 'm.lwp.fun',
+          user: 'lwp2333',
+          password: '',
+        },
+        oss: {
+          accessKeyId: '',
+          accessKeySecret: '',
+          bucket: 'cdn200',
+          region: 'oss-cn-hangzhou',
+        },
+      }),
     ],
     // 基础配置
-    base: mode !== 'production' ? '/' : 'https://cdn200.oss-cn-hangzhou.aliyuncs.com/next-mobile',
+    base: mode !== 'production' ? '/' : 'https://cdn200.oss-cn-hangzhou.aliyuncs.com/next-mobile/',
     publicDir: 'public',
     resolve: {
       alias: {

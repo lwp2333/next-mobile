@@ -67,6 +67,7 @@
     "unplugin-vue-components": "^0.19.3",
     "vite": "^2.9.5",
     "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-publish": "^1.1.1",
     "vite-plugin-pwa": "^0.12.0",
     "vue-tsc": "^0.34.7"
   }
