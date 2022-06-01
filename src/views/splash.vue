@@ -2,10 +2,7 @@
   <div class="container">
     <CustomLoading :loading="loading">
       <TypeWriter v-if="flag" :text="curShowText" />
-      <van-swipe :autoplay="5600" :show-indicators="false" @change="updateText">
-        <van-swipe-item>
-          <LottieAnimation :path="walk" />
-        </van-swipe-item>
+      <van-swipe :autoplay="3200" :show-indicators="false" @change="updateText">
         <van-swipe-item>
           <LottieAnimation :path="book" />
         </van-swipe-item>
@@ -18,23 +15,26 @@
       </van-swipe>
 
       <div class="action">
-        <van-button size="small" to="/paike" round color="linear-gradient(to right, #70F570, #49C628)"
-          >立即进入</van-button
-        >
+        <van-button size="normal" to="/paike" round color="linear-gradient(to left, #84fab0, #8fd3f4)">
+          立即进入
+        </van-button>
       </div>
     </CustomLoading>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick, watchEffect, computed } from 'vue'
-import { useStore } from 'vuex'
 import { RootStateType } from '@/store'
-import walk from '@/assets/json/walk.json?url'
+import { computed, nextTick, ref, watchEffect } from 'vue'
+import { useStore } from 'vuex'
+
 import book from '@/assets/json/book.json?url'
-import tree from '@/assets/json/tree.json?url'
 import flower from '@/assets/json/flower.json?url'
+import tree from '@/assets/json/tree.json?url'
+import walk from '@/assets/json/walk.json?url'
+
 import CustomLoading from '@/components/customLoading/index.vue'
+import LottieAnimation from '@/components/lottieAnimation/index.vue'
 import TypeWriter from '@/components/typeWriter/index.vue'
 
 const loading = computed(() => Store.state.appInfo.firstLoading)
@@ -50,7 +50,6 @@ watchEffect(() => {
 const textMap: string[] = [
   '「 时至今日, 你仍是我的光芒 」',
   '「 有功夫绝望, 不如吃好吃的去睡觉 」',
-  '「 每个人都有罪, 是为了赎罪而工作 」',
   '「 认清生活的真相, 依旧热爱生活 」',
 ]
 const curShowText = ref(textMap[0])
@@ -69,6 +68,8 @@ const updateText = (index: number) => {
 .container {
   width: 100%;
   height: 100%;
+  background: linear-gradient(to bottom, rgba(150, 230, 161, 0.6) 20%, rgba(161, 196, 253, 0.8) 100%);
+  backdrop-filter: blur(6px);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

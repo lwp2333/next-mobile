@@ -9,7 +9,7 @@ export default function useApp() {
   const handleRefreshApp = () => {
     timer && clearTimeout(timer)
     timer = window.setTimeout(() => {
-      console.log('点击刷新')
+      console.log('刷新页面')
       Store.dispatch('appInfo/refreshApp')
     }, 200)
   }

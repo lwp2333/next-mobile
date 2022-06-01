@@ -48,7 +48,7 @@ export default {
 <style scoped lang="less">
 .typingText {
   font-size: 16px;
-  color: #222;
+  color: #333;
   font-weight: 500;
   line-height: 1.5;
   text-align: center;

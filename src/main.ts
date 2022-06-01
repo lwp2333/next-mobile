@@ -3,7 +3,9 @@ import App from './App.vue'
 import Router from './router'
 import Store from './store'
 import 'normalize.css' // 样式重置各浏览器统一
-import './styles/index.less' // 主题、全局样式
+import './styles/global.less' // 全局样式
+import './styles/theme.less' // vant主题样式修改
+
 import './permisson' // 权限
 import 'default-passive-events' // use passive
 // eslint-disable-next-line import/no-absolute-path

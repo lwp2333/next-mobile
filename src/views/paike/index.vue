@@ -1,12 +1,15 @@
 <template>
   <div class="container">
-    <van-uploader v-model="fileList" :after-read="afterRead" />
+    <Waitting />
+    <!-- <van-uploader v-model="fileList" :after-read="afterRead" /> -->
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { UploaderFileListItem } from 'vant'
+
+import Waitting from '@/components/waitting/index.vue'
 import useOss from '@/hooks/useOss'
 const fileList = ref<UploaderFileListItem[]>([])
 
