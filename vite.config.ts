@@ -29,25 +29,10 @@ export default defineConfig(({ mode }) => {
         algorithm: 'gzip',
         ext: '.gz',
       }),
-      vitePublish({
-        enable: true,
-        ftp: {
-          host: '',
-          port: 21,
-          websiteDir: 'm.lwp.fun',
-          user: 'lwp2333',
-          password: '',
-        },
-        oss: {
-          accessKeyId: '',
-          accessKeySecret: '',
-          bucket: 'cdn200',
-          region: 'oss-cn-hangzhou',
-        },
-      }),
+      vitePublish(),
     ],
     // 基础配置
-    base: mode !== 'production' ? '/' : 'https://cdn200.oss-cn-hangzhou.aliyuncs.com/next-mobile/',
+    base: mode === 'production' ? 'https://cdn200.oss-cn-hangzhou.aliyuncs.com/next-mobile/' : '/',
     publicDir: 'public',
     resolve: {
       alias: {

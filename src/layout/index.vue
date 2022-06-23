@@ -86,6 +86,12 @@ const handleBack = () => {
 const { handleRefreshApp } = useApp()
 </script>
 
+<script lang="ts">
+export default {
+  name: 'Layout',
+}
+</script>
+
 <style scoped lang="less">
 .layout {
   width: 100%;
