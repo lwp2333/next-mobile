@@ -12,6 +12,11 @@ defineProps({
   },
 })
 </script>
+<script lang="ts">
+export default {
+  name: 'AliIcon',
+}
+</script>
 
 <style lang="less" scoped>
 .ali-icon {

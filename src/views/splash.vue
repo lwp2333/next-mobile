@@ -31,7 +31,6 @@ import { useStore } from 'vuex'
 import book from '@/assets/json/book.json?url'
 import flower from '@/assets/json/flower.json?url'
 import tree from '@/assets/json/tree.json?url'
-import walk from '@/assets/json/walk.json?url'
 
 import CustomLoading from '@/components/customLoading/index.vue'
 import LottieAnimation from '@/components/lottieAnimation/index.vue'

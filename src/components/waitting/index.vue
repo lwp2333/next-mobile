@@ -8,6 +8,11 @@
 <script setup lang="ts">
 import notFoundSvg from '@/assets/svg/notFound.svg'
 </script>
+<script lang="ts">
+export default {
+  name: 'Waitting',
+}
+</script>
 
 <style lang="less" scoped>
 .container {
