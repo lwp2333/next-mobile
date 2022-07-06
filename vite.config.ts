@@ -15,7 +15,10 @@ export default defineConfig(({ mode }) => {
     plugins: [
       vue(),
       vueJsx(),
-      VitePWA(),
+      VitePWA({
+        injectRegister: 'script',
+        scope: '/',
+      }),
       Components({
         resolvers: [VantResolver()],
         dts: true,

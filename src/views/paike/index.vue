@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <Waitting />
-    <!-- <van-uploader v-model="fileList" :after-read="afterRead" /> -->
+    <!-- <Waitting /> -->
+    <van-uploader v-model="fileList" :after-read="afterRead" />
   </div>
 </template>
 

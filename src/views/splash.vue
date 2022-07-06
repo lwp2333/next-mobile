@@ -24,9 +24,8 @@
 </template>
 
 <script setup lang="ts">
-import { RootStateType } from '@/store'
 import { computed, nextTick, ref, watchEffect } from 'vue'
-import { useStore } from 'vuex'
+import { useAppInfoStore } from '@/store'
 
 import book from '@/assets/json/book.json?url'
 import flower from '@/assets/json/flower.json?url'
@@ -36,13 +35,15 @@ import CustomLoading from '@/components/customLoading/index.vue'
 import LottieAnimation from '@/components/lottieAnimation/index.vue'
 import TypeWriter from '@/components/typeWriter/index.vue'
 
-const loading = computed(() => Store.state.appInfo.firstLoading)
-const Store = useStore<RootStateType>()
+
+const appInfoStore = useAppInfoStore()
+
+const loading = computed(() => appInfoStore.firstLoading)
 
 watchEffect(() => {
   loading.value &&
     setTimeout(() => {
-      Store.dispatch('appInfo/clearLoading')
+      appInfoStore.clearLoading()
     }, 2400)
 })
 
