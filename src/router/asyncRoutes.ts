@@ -1,6 +1,7 @@
 // 自动扫描装载模块
-const modules = import.meta.globEager('../views/*/route.ts')
+import { RouteRecordRaw } from 'vue-router'
 
-const asyncRoutes = Object.values(modules).map(item => item.default)
+const modules = import.meta.glob('../views/*/route.ts', { eager: true })
+const asyncRoutes: RouteRecordRaw[] = Object.values(modules).map((item: any) => item.default)
 
 export default asyncRoutes

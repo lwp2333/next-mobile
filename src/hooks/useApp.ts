@@ -1,9 +1,11 @@
 import { useAppInfoStore } from '@/store'
-import { computed } from 'vue'
+import { computed, onUnmounted } from 'vue'
+
 export default function useApp() {
   const appInfoStore = useAppInfoStore()
-
   const refreshFlag = computed(() => appInfoStore.refreshFlag)
+  const appName = computed(() => appInfoStore.appName)
+
   let timer: number
   const handleRefreshApp = () => {
     timer && clearTimeout(timer)
@@ -11,8 +13,12 @@ export default function useApp() {
       appInfoStore.refreshApp()
     }, 200)
   }
+  onUnmounted(() => {
+    timer && clearTimeout(timer)
+  })
   return {
     refreshFlag,
     handleRefreshApp,
+    appName,
   }
 }

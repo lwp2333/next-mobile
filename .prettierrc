@@ -4,13 +4,5 @@
   "printWidth": 120,
   "arrowParens": "avoid",
   "trailingComma": "es5",
-  "endOfLine": "crlf",
-  "overrides": [
-    {
-      "files": ".prettierrc",
-      "options": {
-        "parser": "json"
-      }
-    }
-  ]
+  "endOfLine": "crlf"
 }

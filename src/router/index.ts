@@ -20,6 +20,7 @@ const Router = createRouter({
       },
       redirect: '/splash',
       component: () => import('@/layout/index.vue'),
+      children: [],
     },
     {
       path: '/splash',

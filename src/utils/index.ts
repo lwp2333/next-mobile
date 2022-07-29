@@ -11,5 +11,5 @@ export const randNum = (min: number, max: number) => Math.floor(Math.random()) *
  * @returns uuid
  */
 export const generateUUID = () => {
-  return URL.createObjectURL(new Blob()).substr(-36)
+  return URL.createObjectURL(new Blob()).slice(-36)
 }

@@ -6,7 +6,6 @@ import { VitePWA } from 'vite-plugin-pwa'
 import viteCompression from 'vite-plugin-compression'
 import Components from 'unplugin-vue-components/vite'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
-import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -39,7 +38,7 @@ export default defineConfig(({ mode }) => {
     publicDir: 'public',
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src'),
+        '@': '/src/',
       },
     },
     // 服务配置
@@ -68,7 +67,6 @@ export default defineConfig(({ mode }) => {
       assetsDir: 'assets',
       assetsInlineLimit: 4096,
       cssCodeSplit: true,
-      brotliSize: false,
       sourcemap: false,
       terserOptions: {
         compress: {
