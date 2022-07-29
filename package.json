@@ -61,7 +61,6 @@
     "vite": "^3.0.3",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-publish": "^1.2.1",
-    "vite-plugin-pwa": "^0.12.2",
     "vue-tsc": "^0.38.2"
   }
 }
