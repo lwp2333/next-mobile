@@ -2,9 +2,16 @@
   width: 100%;
   height: 100%;
 }
+
 .van-tabbar-item {
   filter: grayscale(1);
 }
+
 .van-tabbar-item--active {
   filter: none;
+}
+
+// 生产环境 fixed 有可能被其他同级样式覆盖 所以加important
+.van-nav-bar--fixed {
+  position: fixed !important;
 }

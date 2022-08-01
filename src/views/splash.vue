@@ -35,7 +35,6 @@ import CustomLoading from '@/components/customLoading/index.vue'
 import LottieAnimation from '@/components/lottieAnimation/index.vue'
 import TypeWriter from '@/components/typeWriter/index.vue'
 
-
 const appInfoStore = useAppInfoStore()
 
 const loading = computed(() => appInfoStore.firstLoading)

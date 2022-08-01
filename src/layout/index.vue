@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ pdtop: info.showTitle, layout: true }">
+  <div :class="{ pdTop: info.showTitle, layout: true, pdBottom: !info.hideTabbar }">
     <van-nav-bar
       v-if="info.showTitle"
       :title="info.title"
@@ -18,7 +18,7 @@
         <component :is="Component" />
       </Transition>
     </router-view>
-    <van-tabbar v-model="info.active" safe-area-inset-bottom route fixed>
+    <van-tabbar v-if="!info.hideTabbar" v-model="info.active" safe-area-inset-bottom route fixed>
       <van-tabbar-item name="/paike" to="/paike" replace>
         <template #icon>
           <AliIcon iconName="paike" />
@@ -53,9 +53,10 @@ import { useRoute, useRouter } from 'vue-router'
 import AliIcon from '@/components/aliIcon/index.vue'
 import useApp from '@/hooks/useApp'
 type Meta = {
-  showTitle: boolean
   title: string
   active: string
+  showTitle: boolean
+  hideTabbar: boolean
 }
 
 const Route = useRoute()
@@ -63,19 +64,21 @@ const Router = useRouter()
 
 const info = reactive<Meta>({
   showTitle: false,
+  hideTabbar: false,
   title: '',
   active: '',
 })
 
 watchEffect(() => {
   const { meta, matched } = Route
-  const { showTitle, title } = meta as Meta
+  const { showTitle, title, hideTabbar } = meta as Meta
   // 通过路由匹配来确定tab高亮 （van-tabbar route 模式自带）
   // const last = matched[matched.length - 1]
   // const tabbar = ['/paike', '/zuji', '/tongji', '/setting']
   // info.active = tabbar.find(item => last.path.startsWith(item)) || ''
   info.showTitle = showTitle
   info.title = title
+  info.hideTabbar = hideTabbar
 })
 
 const handleBack = () => {
@@ -99,10 +102,13 @@ export default {
   padding-top: 4px;
   .mainPage {
     width: 100%;
-    height: calc(100% - var(--van-tabbar-height));
+    height: 100%;
   }
 }
-.pdtop {
+.pdTop {
   padding-top: calc(4px + var(--van-nav-bar-height));
+}
+.pdBottom {
+  padding-bottom: calc(4px + var(--van-tabbar-height));
 }
 </style>
