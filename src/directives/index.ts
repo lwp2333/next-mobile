@@ -1,4 +1,4 @@
-import { Notify } from 'vant'
+import { showNotify } from 'vant'
 
 // 注册一个全局自定义指令 `v-focus`
 const focus = {
@@ -21,7 +21,7 @@ const copy = {
       textarea.setSelectionRange(0, textarea.value.length)
       const result = document.execCommand('Copy')
       if (result) {
-        Notify({
+        showNotify({
           type: 'success',
           message: `已复制：${textarea.value}`,
         })
