@@ -63,6 +63,7 @@ export default defineConfig(({ mode }) => {
       assetsInlineLimit: 4096,
       cssCodeSplit: true,
       sourcemap: false,
+      minify: 'terser',
       terserOptions: {
         compress: {
           // 生产环境去除console及debug
