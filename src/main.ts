@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import VConsole from 'vconsole'
 import App from './App.vue'
 import Router from './router'
 import 'normalize.css' // 样式重置各浏览器统一
@@ -20,5 +21,7 @@ app.config.globalProperties.productionTip = false
 for (const i in directives) {
   app.directive(i, directives[i])
 }
+
+const vConsole = new VConsole()
 
 app.use(Router).use(pinia).mount('#app')

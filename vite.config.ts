@@ -42,10 +42,10 @@ export default defineConfig(({ mode }) => {
       https: false,
       open: true,
       proxy: {
-        '/dev/api': {
-          target: 'http://www.lwp.fun:7000',
+        '/api': {
+          target: 'http://m.ikun.js.cn/api',
           changeOrigin: true,
-          rewrite: path => path.replace(/\/dev\/api/, ''),
+          rewrite: path => path.replace(/\/api/, ''),
         },
       },
     },
